@@ -76,3 +76,19 @@ exports.login = async (req, res) => {
         })
     }
 }
+
+exports.logout = async (req, res) => {
+    try {
+        // JWT logout - just acknowledge logout
+        // Frontend removes token from localStorage
+        res.status(200).json({
+            success: true,
+            message: "User logged out successfully"
+        })
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            message: error.message
+        })
+    }
+}
